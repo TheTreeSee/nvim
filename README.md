@@ -145,14 +145,17 @@ This requires:
 Alternatively, one can install gcc and make which don't require changing the config,
 the easiest way is to use choco:
 
-1. install [chocolatey](https://chocolatey.org/install)
+1. install [mingw](https://sourceforge.net/projects/mingw-w64/files/)
+-seh and extract in program files, now add the bin folder to path 
+
+2. install [chocolatey](https://chocolatey.org/install)
 either follow the instructions on the page or use winget,
 run in cmd as **admin**:
 ```
 winget install --accept-source-agreements chocolatey.chocolatey
 ```
 
-2. install all requirements using choco, exit previous cmd and
+3. install all requirements using choco, exit previous cmd and
 open a new one so that choco path is set, and run in cmd as **admin**:
 ```
 choco install -y neovim git ripgrep wget fd unzip gzip mingw make
