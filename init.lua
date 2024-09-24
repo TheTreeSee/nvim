@@ -21,9 +21,7 @@
 =====================================================================
 
 What is Kickstart?
-
   Kickstart.nvim is *not* a distribution.
-
   Kickstart.nvim is a starting point for your own configuration.
     The goal is that you can read every line of code, top-to-bottom, understand
     what your configuration is doing, and modify it to suit your needs.
@@ -121,12 +119,44 @@ end)
 -- Enable break indent
 vim.opt.breakindent = true
 
+-- Enable line wraping
+vim.opt.wrap = true
+
+-- Wrap lines on word boundaries
+vim.opt.linebreak = true
+
+-- Set tab to be 4 spases
+vim.opt.tabstop = 4
+
+-- Set indent step to 4 spaces
+vim.opt.shiftwidth = 4
+
+-- Expand tab character to spaces
+vim.opt.expandtab = true
+
+-- Allow arrow and movement keys left right to wrap over lines
+vim.opt.whichwrap = '<,>,h,l'
+
+-- Disable swapfile?
+vim.opt.swapfile = false
+
+-- Show available options in command menu
+vim.opt.wildmenu = true
+vim.wildmode = 'longest:full,full'
+vim.wildignore = ''
+vim.wildoptions = 'pum'
+
+vim.opt.showcmd = true
+
 -- Save undo history
 vim.opt.undofile = true
 
 -- Case-insensitive searching UNLESS \C or one or more capital letters in the search term
 vim.opt.ignorecase = true
 vim.opt.smartcase = true
+
+vim.opt.smartindent = true
+vim.opt.autoindent = true
 
 -- Keep signcolumn on by default
 vim.opt.signcolumn = 'yes'
@@ -156,6 +186,9 @@ vim.opt.cursorline = true
 
 -- Minimal number of screen lines to keep above and below the cursor.
 vim.opt.scrolloff = 10
+
+-- Set up the keybinding
+vim.api.nvim_set_keymap('i', '<CR>', '<cmd>lua smart_enter()<CR>', { noremap = true, silent = true })
 
 -- [[ Basic Keymaps ]]
 --  See `:help vim.keymap.set()`
@@ -192,6 +225,8 @@ vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper win
 
 -- Move up in that bitch (to the left handy to go inside brackets) in Insert mode using control
 vim.api.nvim_set_keymap('i', '<C-k>', '<Left>', { desc = 'Move cursor left' })
+
+-- vim.api.nvim_set_keymap('i', '<C-<Backspace>>'
 
 -- test
 -- vim.keymap.set('n', '<C-j>', 'o<esc>', { desc = 'Add line no insert' })
