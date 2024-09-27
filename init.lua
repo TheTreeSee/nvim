@@ -188,7 +188,7 @@ vim.opt.cursorline = true
 vim.opt.scrolloff = 10
 
 -- Set up the keybinding
-vim.api.nvim_set_keymap('i', '<CR>', '<cmd>lua smart_enter()<CR>', { noremap = true, silent = true })
+-- vim.api.nvim_set_keymap('i', '<CR>', '<cmd>lua smart_enter()<CR>', { noremap = true, silent = true })
 
 -- [[ Basic Keymaps ]]
 --  See `:help vim.keymap.set()`
@@ -649,6 +649,7 @@ require('lazy').setup({
         -- clangd = {},
         -- gopls = {},
         pyright = {},
+        omnisharp = {},
         -- rust_analyzer = {},
         -- ... etc. See `:help lspconfig-all` for a list of all the pre-configured LSPs
         --
@@ -726,7 +727,7 @@ require('lazy').setup({
         -- Disable "format_on_save lsp_fallback" for languages that don't
         -- have a well standardized coding style. You can add additional
         -- languages here or re-enable it for the disabled ones.
-        local disable_filetypes = { c = true, cpp = true }
+        local disable_filetypes = { c = true, cpp = true, cs = true }
         local lsp_format_opt
         if disable_filetypes[vim.bo[bufnr].filetype] then
           lsp_format_opt = 'never'
