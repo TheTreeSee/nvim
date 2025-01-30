@@ -158,7 +158,7 @@ winget install --accept-source-agreements chocolatey.chocolatey
 3. install all requirements using choco, exit previous cmd and
 open a new one so that choco path is set, and run in cmd as **admin**:
 ```
-choco install -y neovim git ripgrep wget fd unzip gzip mingw make
+choco install -y neovim git ripgrep wget fd unzip gzip mingw make cmake
 ```
 </details>
 <details><summary>WSL (Windows Subsystem for Linux)</summary>
