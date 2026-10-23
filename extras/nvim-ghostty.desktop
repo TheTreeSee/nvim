@@ -1,0 +1,11 @@
+[Desktop Entry]
+Type=Application
+Name=Neovim (Ghostty)
+GenericName=Text Editor
+Comment=Edit text files in Neovim inside Ghostty
+Exec=@HOME@/.local/bin/nvim-gui %F
+Icon=nvim
+Terminal=false
+Categories=Utility;TextEditor;
+Keywords=Text;editor;vim;nvim;
+MimeType=text/plain;text/markdown;text/x-markdown;text/x-python;text/x-python3;text/rust;text/x-rust;text/javascript;application/javascript;application/x-javascript;text/typescript;application/typescript;text/x-typescript;text/html;text/css;application/json;application/x-yaml;application/yaml;text/x-yaml;application/toml;text/x-toml;application/x-shellscript;text/x-shellscript;text/x-csrc;text/x-chdr;text/x-c++src;text/x-c++hdr;text/x-makefile;text/x-log;text/x-lua;application/xml;text/xml;text/csv;

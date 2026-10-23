@@ -1,0 +1,8 @@
+#!/bin/sh
+# Open files in Neovim inside a new Ghostty window, starting in the first file's directory.
+# Installed by extras/install.sh, used by nvim-ghostty.desktop
+dir=$HOME
+if [ -n "$1" ]; then
+  dir=$(dirname -- "$(realpath -- "$1")")
+fi
+exec ghostty --working-directory="$dir" -e nvim "$@"
