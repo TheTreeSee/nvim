@@ -758,7 +758,8 @@ do
   --  See `:help lsp-config` for information about keys and how to configure
   ---@type table<string, vim.lsp.Config>
   local servers = {
-    -- clangd = {},
+    -- C / C++: projects need a compile_commands.json (CMake, idf.py, bear) for clangd to find includes
+    clangd = {},
     -- gopls = {},
     -- Python: pyright for types, ruff for linting/formatting
     pyright = {},
@@ -839,6 +840,7 @@ do
     -- You can add other tools here that you want Mason to install
     'markdownlint',
     'prettierd',
+    'clang-format',
   })
 
   require('mason-tool-installer').setup { ensure_installed = ensure_installed }
@@ -876,6 +878,8 @@ do
     -- You can also specify external formatters in here.
     formatters_by_ft = {
       rust = { 'rustfmt' },
+      c = { 'clang-format' },
+      cpp = { 'clang-format' },
       python = { 'ruff_organize_imports', 'ruff_format' },
       javascript = { 'prettierd', 'prettier', stop_after_first = true },
       javascriptreact = { 'prettierd', 'prettier', stop_after_first = true },
@@ -997,6 +1001,9 @@ do
   local parsers = {
     'bash',
     'c',
+    'cpp',
+    'cmake',
+    'make',
     'diff',
     'html',
     'lua',
