@@ -7,5 +7,6 @@ vim.pack.add {
 }
 
 vim.keymap.set('n', '<leader>gg', '<Cmd>LazyGit<CR>', { desc = 'Lazy[G]it' })
+vim.keymap.set('n', '<leader>lg', '<Cmd>LazyGit<CR>', { desc = '[L]azy[G]it (same as the shell alias)' })
 vim.keymap.set('n', '<leader>gf', '<Cmd>LazyGitCurrentFile<CR>', { desc = 'LazyGit for repo of current [F]ile' })
 vim.keymap.set('n', '<leader>gl', '<Cmd>LazyGitFilterCurrentFile<CR>', { desc = '[G]it [L]og of current file' })

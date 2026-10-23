@@ -55,7 +55,13 @@ local function find_projects()
   return dirs
 end
 
-local function pick_project()
+-- Your most used directories according to zoxide (the `z` command), most frecent first
+local function find_zoxide_dirs()
+  local out = vim.system({ 'zoxide', 'query', '--list' }, { text = true }):wait()
+  return vim.split(out.stdout or '', '\n', { trimempty = true })
+end
+
+local function pick_dir(title, dirs)
   local pickers = require 'telescope.pickers'
   local finders = require 'telescope.finders'
   local conf = require('telescope.config').values
@@ -64,9 +70,9 @@ local function pick_project()
 
   pickers
     .new({}, {
-      prompt_title = 'Projects',
+      prompt_title = title,
       finder = finders.new_table {
-        results = find_projects(),
+        results = dirs,
         entry_maker = function(dir) return { value = dir, display = vim.fn.fnamemodify(dir, ':~'), ordinal = dir } end,
       },
       sorter = conf.generic_sorter {},
@@ -81,4 +87,9 @@ local function pick_project()
     :find()
 end
 
+local function pick_project() pick_dir('Projects', find_projects()) end
+local function pick_zoxide() pick_dir('Zoxide', find_zoxide_dirs()) end
+
 vim.keymap.set('n', '<leader>pp', pick_project, { desc = '[P]ick a project' })
+vim.keymap.set('n', '<leader>pz', pick_zoxide, { desc = 'Pick from [Z]oxide dirs' })
+vim.api.nvim_create_user_command('Projects', pick_project, { desc = 'Pick a project' })

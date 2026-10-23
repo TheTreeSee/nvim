@@ -439,6 +439,7 @@ do
       { '<leader>a', group = '[A]I / Claude Code', mode = { 'n', 'v' } },
       { '<leader>g', group = '[G]it' },
       { '<leader>p', group = '[P]rojects & sessions' },
+      { '<leader>l', group = '[L]azygit' },
     },
   }
 
